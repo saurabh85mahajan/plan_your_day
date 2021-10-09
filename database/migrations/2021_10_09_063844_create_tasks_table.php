@@ -19,6 +19,7 @@ class CreateTasksTable extends Migration
             $table->string('title');
             $table->integer('priority');
             $table->integer('complexity');
+            $table->timestamp('is_completed')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

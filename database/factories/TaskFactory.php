@@ -26,8 +26,8 @@ class TaskFactory extends Factory
             //
             'project_id' => Project::factory(),
             'title' => $this->faker->sentence(),
-            'priority' => $this->faker->numberBetween(1, 9),
-            'complexity' => $this->faker->numberBetween(1, 5),
+            'priority' => $this->faker->numberBetween(1, 3),
+            'complexity' => $this->faker->numberBetween(1, 3),
         ];
     }
 
@@ -35,7 +35,7 @@ class TaskFactory extends Factory
     {
         return $this->state(function (array $attributes) {
             return [
-                'priority' => 9,
+                'priority' => 3,
             ];
         });
     }
@@ -53,7 +53,7 @@ class TaskFactory extends Factory
     {
         return $this->state(function (array $attributes) {
             return [
-                'priority' => 5,
+                'priority' => 3,
             ];
         });
     }
