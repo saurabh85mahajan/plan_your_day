@@ -18,6 +18,9 @@
                     <x-nav-link :href="route('tall-crud-generator')" :active="request()->routeIs('tall-crud-generator')">
                         {{ __('Crud Generator') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('projects')" :active="request()->routeIs('projects')">
+                        {{ __('Projects') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -68,6 +71,9 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('projects')" :active="request()->routeIs('projects')">
+                {{ __('Projects') }}
             </x-responsive-nav-link>
         </div>
 

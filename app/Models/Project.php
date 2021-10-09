@@ -10,7 +10,7 @@ class Project extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $guarded = ['name', 'notes'];
+    protected $fillable = ['name', 'notes'];
 
     public function user()
     {
