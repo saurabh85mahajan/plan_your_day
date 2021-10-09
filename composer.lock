@@ -4,8 +4,123 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "14d3e15dca63cb77457495a2cf19272e",
+    "content-hash": "d93e9447378322ae308ab04babcafbed",
     "packages": [
+        {
+            "name": "ascsoftw/livewire-toast",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ascsoftw/livewire-toast.git",
+                "reference": "8f88eb937e618ef8d34c89e9dbc19dfa6a2396af"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ascsoftw/livewire-toast/zipball/8f88eb937e618ef8d34c89e9dbc19dfa6a2396af",
+                "reference": "8f88eb937e618ef8d34c89e9dbc19dfa6a2396af",
+                "shasum": ""
+            },
+            "require-dev": {
+                "livewire/livewire": "^2.4",
+                "orchestra/testbench": "^6.17"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Ascsoftw\\LivewireToast\\LivewireToastServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Ascsoftw\\LivewireToast\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "AscSoftwares",
+                    "email": "support@ascsoftwares.com"
+                }
+            ],
+            "description": "Livewire Package to display Toast Notifications",
+            "keywords": [
+                "LivewireToast",
+                "laravel",
+                "livewire",
+                "notifications",
+                "toast"
+            ],
+            "support": {
+                "issues": "https://github.com/ascsoftw/livewire-toast/issues",
+                "source": "https://github.com/ascsoftw/livewire-toast/tree/1.0.1"
+            },
+            "time": "2021-05-25T11:07:52+00:00"
+        },
+        {
+            "name": "ascsoftw/tall-crud-generator",
+            "version": "v2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ascsoftw/tall-crud-generator.git",
+                "reference": "aea307fcf0e69c64bf3270c0ebf339ff530c6df2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ascsoftw/tall-crud-generator/zipball/aea307fcf0e69c64bf3270c0ebf339ff530c6df2",
+                "reference": "aea307fcf0e69c64bf3270c0ebf339ff530c6df2",
+                "shasum": ""
+            },
+            "require": {
+                "ascsoftw/livewire-toast": "^1.0"
+            },
+            "require-dev": {
+                "christophrumpel/missing-livewire-assertions": "^0.4.0",
+                "livewire/livewire": "^2.5",
+                "orchestra/testbench": "^6.18",
+                "phpunit/phpunit": "^9.3"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Ascsoftw\\TallCrudGenerator\\TallCrudGeneratorServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Ascsoftw\\TallCrudGenerator\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "AscSoftwares",
+                    "email": "support@ascsoftwares.com"
+                }
+            ],
+            "description": "Laravel Package to generate CRUD Files using TALL Stack",
+            "keywords": [
+                "crud",
+                "generator",
+                "laravel",
+                "livewire",
+                "tall"
+            ],
+            "support": {
+                "issues": "https://github.com/ascsoftw/tall-crud-generator/issues",
+                "source": "https://github.com/ascsoftw/tall-crud-generator/tree/v2.0.0"
+            },
+            "time": "2021-10-05T13:23:48+00:00"
+        },
         {
             "name": "asm89/stack-cors",
             "version": "v2.0.3",

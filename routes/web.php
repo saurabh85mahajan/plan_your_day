@@ -21,4 +21,9 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+
+Route::middleware(['auth'])->group(function() {
+    Route::view('/tall-crud-generator', 'tall-crud-generator')->name('tall-crud-generator');
+});
+
 require __DIR__.'/auth.php';
