@@ -4,11 +4,9 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use Livewire\WithPagination;
-use Illuminate\Database\Eloquent\Builder;
 use \Illuminate\View\View;
 
 use App\Models\Task;
-use App\Models\Project;
 
 class Tasks extends Component
 {

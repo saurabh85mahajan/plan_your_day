@@ -54,4 +54,5 @@ class Task extends Model
         $this->is_completed = null;
         $this->save();
     }
+
 }

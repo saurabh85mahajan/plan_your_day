@@ -6,6 +6,7 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use Illuminate\Database\Eloquent\Builder;
 use \Illuminate\View\View;
+use Carbon\Carbon;
 
 use App\Models\Task;
 use App\Models\Project;
@@ -130,7 +131,14 @@ class OldTasks extends Component
             })
             ->when($this->isFilterSet('project_id'), function($query) {
                 return $query->where('project_id', $this->selectedFilters['project_id']);
-            })
-;
+            });
+    }
+
+    public function duplicate(Task $task)
+    {
+        $newTask = $task->replicate();
+        $newTask->created_at = Carbon::now();
+        $newTask->save();
+        $this->emitTo('livewire-toast', 'show', 'New Task Added Successfully');
     }
 }

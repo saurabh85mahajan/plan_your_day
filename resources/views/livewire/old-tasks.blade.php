@@ -46,31 +46,32 @@
         <table class="w-full whitespace-no-wrap mt-4 shadow-2xl" wire:loading.class.delay="opacity-50">
             <thead>
                 <tr class="text-left font-bold bg-blue-400">
-                <td class="px-3 py-2" >
-                    <div class="flex items-center">
-                        <button wire:click="sortBy('title')">Title</button>
-                        <x:tall-crud-generator::sort-icon sortField="title" :sort-by="$sortBy" :sort-asc="$sortAsc" />
-                    </div>
-                </td>
-                <td class="px-3 py-2" >Project</td>
-                <td class="px-3 py-2" >
-                    <div class="flex items-center">
-                        <button wire:click="sortBy('complexity')">Complexity</button>
-                        <x:tall-crud-generator::sort-icon sortField="complexity" :sort-by="$sortBy" :sort-asc="$sortAsc" />
-                    </div>
-                </td>
-                <td class="px-3 py-2" >
-                    <div class="flex items-center">
-                        <button wire:click="sortBy('priority')">Priority</button>
-                        <x:tall-crud-generator::sort-icon sortField="priority" :sort-by="$sortBy" :sort-asc="$sortAsc" />
-                    </div>
-                </td>
-                <td class="px-3 py-2" >
-                    <div class="flex items-center">
-                        <button wire:click="sortBy('created_at')">Created At</button>
-                        <x:tall-crud-generator::sort-icon sortField="created_at" :sort-by="$sortBy" :sort-asc="$sortAsc" />
-                    </div>
-                </td>
+                    <td class="px-3 py-2" >
+                        <div class="flex items-center">
+                            <button wire:click="sortBy('title')">Title</button>
+                            <x:tall-crud-generator::sort-icon sortField="title" :sort-by="$sortBy" :sort-asc="$sortAsc" />
+                        </div>
+                    </td>
+                    <td class="px-3 py-2" >Project</td>
+                    <td class="px-3 py-2" >
+                        <div class="flex items-center">
+                            <button wire:click="sortBy('complexity')">Complexity</button>
+                            <x:tall-crud-generator::sort-icon sortField="complexity" :sort-by="$sortBy" :sort-asc="$sortAsc" />
+                        </div>
+                    </td>
+                    <td class="px-3 py-2" >
+                        <div class="flex items-center">
+                            <button wire:click="sortBy('priority')">Priority</button>
+                            <x:tall-crud-generator::sort-icon sortField="priority" :sort-by="$sortBy" :sort-asc="$sortAsc" />
+                        </div>
+                    </td>
+                    <td class="px-3 py-2" >
+                        <div class="flex items-center">
+                            <button wire:click="sortBy('created_at')">Created At</button>
+                            <x:tall-crud-generator::sort-icon sortField="created_at" :sort-by="$sortBy" :sort-asc="$sortAsc" />
+                        </div>
+                    </td>
+                    <td class="px-3 py-2" >Actions</td>
                 </tr>
             </thead>
             <tbody class="divide-y divide-blue-400">
@@ -80,7 +81,12 @@
                     <td class="px-3 py-2" >{{ $result->project?->name}}</td>
                     <td class="px-3 py-2" >{{ $result->complexity}}</td>
                     <td class="px-3 py-2" >{{ $result->priority}}</td>
-                    <td class="px-3 py-2" >{{ $result->created_at}}</td>
+                    <td class="px-3 py-2" >{{ date('F j, Y', strtotime($result->created_at))}}</td>
+                    <td class="px-3 py-2" >
+                        <x:tall-crud-generator::button mode="add" wire:loading.attr="disabled" wire:click="duplicate({{ $result->id}})">
+                            Duplicate
+                        </x:tall-crud-generator::button>
+                    </td>
                </tr>
             @endforeach
             </tbody>
