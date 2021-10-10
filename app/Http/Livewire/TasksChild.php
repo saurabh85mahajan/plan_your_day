@@ -23,16 +23,13 @@ class TasksChild extends Component
         'showEditForm',
     ];
 
-    /**
-     * @var array
-     */
     public $projects = [];
 
     /**
      * @var array
      */
     protected $rules = [
-        'item.title' => 'required',
+        'item.title' => 'required|min:5',
         'item.priority' => 'required',
         'item.complexity' => 'required',
         'item.project_id' => 'required',

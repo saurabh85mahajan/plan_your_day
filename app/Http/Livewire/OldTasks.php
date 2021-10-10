@@ -134,7 +134,7 @@ class OldTasks extends Component
             });
     }
 
-    public function duplicate(Task $task)
+    public function duplicate(Task $task): void
     {
         $task->duplicate();
         $this->emitTo('livewire-toast', 'show', 'New Task Added Successfully');

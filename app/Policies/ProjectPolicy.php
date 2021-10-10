@@ -19,6 +19,7 @@ class ProjectPolicy
     public function viewAny(User $user)
     {
         //
+        return true;
     }
 
     /**
@@ -31,6 +32,7 @@ class ProjectPolicy
     public function view(User $user, Project $project)
     {
         //
+        return $project->user->id == $user->id;
     }
 
     /**
@@ -81,6 +83,7 @@ class ProjectPolicy
     public function restore(User $user, Project $project)
     {
         //
+        return $project->user->id == $user->id;
     }
 
     /**
@@ -93,5 +96,6 @@ class ProjectPolicy
     public function forceDelete(User $user, Project $project)
     {
         //
+        return $project->user->id == $user->id;
     }
 }
