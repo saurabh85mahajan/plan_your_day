@@ -91,7 +91,7 @@ class Tasks extends Component
         $this->resetPage();
     }
 
-    public function isFilterSet(string $column): bool
+    private function isFilterSet(string $column): bool
     {
         if( isset($this->selectedFilters[$column]) && $this->selectedFilters[$column] != '') {
             return true;
@@ -122,7 +122,7 @@ class Tasks extends Component
             });
     }
 
-    public function toggleComplete( Task $task)
+    public function toggleComplete( Task $task): void
     {
         if ($task->isCompleted()) {
             $task->markPending();

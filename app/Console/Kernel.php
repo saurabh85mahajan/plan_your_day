@@ -28,6 +28,8 @@ class Kernel extends ConsoleKernel
         $schedule->command('schedule:tasks')
             ->dailyAt('01:00')
             ->appendOutputTo(storage_path('logs/schedule.log'));
+
+        $schedule->command('model:prune')->daily();
     }
 
     /**

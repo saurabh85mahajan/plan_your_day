@@ -4,12 +4,13 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\MassPrunable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Task extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, SoftDeletes, MassPrunable;
 
     protected $fillable = ['title', 'priority', 'complexity'];
 
@@ -61,6 +62,11 @@ class Task extends Model
         $newTask->created_at = Carbon::now();
         $newTask->is_completed = null;
         $newTask->save();
+    }
+
+    public function prunable()
+    {
+        return static::where('created_at', '<=', now()->subMonths(3));
     }
 
 }
