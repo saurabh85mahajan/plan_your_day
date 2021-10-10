@@ -53,7 +53,7 @@ class TaskFactory extends Factory
     {
         return $this->state(function (array $attributes) {
             return [
-                'priority' => 3,
+                'complexity' => 3,
             ];
         });
     }
@@ -62,7 +62,7 @@ class TaskFactory extends Factory
     {
         return $this->state(function (array $attributes) {
             return [
-                'priority' => 1,
+                'complexity' => 1,
             ];
         });
     }

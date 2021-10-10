@@ -40,6 +40,7 @@ class TasksChild extends Component
      */
     protected $validationAttributes = [
         'item.title' => 'Task',
+        'item.project_id' => 'Project',
     ];
 
     /**
