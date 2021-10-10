@@ -31,6 +31,7 @@
                 <div class="mt-4">
                     <x:tall-crud-generator::label>Project</x:tall-crud-generator::label>
                     <x:tall-crud-generator::select class="block mt-1 w-full" wire:model.defer="item.project_id">
+                        <option value="">-Select Project-</option>
                         @foreach($projects as $c)
                         <option value="{{$c->id}}">{{$c->name}}</option>
                         @endforeach
@@ -80,6 +81,7 @@
                 <div class="mt-4">
                     <x:tall-crud-generator::label>Project</x:tall-crud-generator::label>
                     <x:tall-crud-generator::select class="block mt-1 w-full" wire:model.defer="item.project_id">
+                        <option value="">-Select Project-</option>
                         @foreach($projects as $c)
                         <option value="{{$c->id}}">{{$c->name}}</option>
                         @endforeach

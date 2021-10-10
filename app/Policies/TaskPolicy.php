@@ -19,6 +19,7 @@ class TaskPolicy
     public function viewAny(User $user)
     {
         //
+        return true;
     }
 
     /**
@@ -31,6 +32,7 @@ class TaskPolicy
     public function view(User $user, Task $task)
     {
         //
+        return $task->project->user->id == $user->id;
     }
 
     /**
@@ -81,6 +83,7 @@ class TaskPolicy
     public function restore(User $user, Task $task)
     {
         //
+        return $task->project->user->id == $user->id;
     }
 
     /**
@@ -93,5 +96,6 @@ class TaskPolicy
     public function forceDelete(User $user, Task $task)
     {
         //
+        return $task->project->user->id == $user->id;
     }
 }
