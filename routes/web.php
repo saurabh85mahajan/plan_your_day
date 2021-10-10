@@ -17,15 +17,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth'])->name('dashboard');
 
 
 Route::middleware(['auth'])->group(function() {
-    Route::view('/tall-crud-generator', 'tall-crud-generator')->name('tall-crud-generator');
+    // Route::view('/tall-crud-generator', 'tall-crud-generator')->name('tall-crud-generator');
     Route::view('/projects', 'projects')->name('projects');
-    Route::view('/tasks', 'tasks')->name('tasks');
+    Route::view('/dashboard', 'tasks')->name('dashboard');
     Route::view('/old-tasks', 'old-tasks')->name('old-tasks');
 });
 

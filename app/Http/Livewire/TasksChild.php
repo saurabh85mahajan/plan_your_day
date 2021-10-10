@@ -6,9 +6,11 @@ use Livewire\Component;
 use \Illuminate\View\View;
 use App\Models\Task;
 use App\Models\Project;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class TasksChild extends Component
 {
+    use AuthorizesRequests;
 
     public $item;
 
@@ -76,6 +78,8 @@ class TasksChild extends Component
 
     public function deleteItem(): void
     {
+        $task = Task::findOrFail($this->primaryKey);
+        $this->authorize('delete', $task);
         Task::destroy($this->primaryKey);
         $this->confirmingItemDeletion = false;
         $this->primaryKey = '';
@@ -112,6 +116,7 @@ class TasksChild extends Component
  
     public function showEditForm(Task $task): void
     {
+        $this->authorize('update', $task);
         $this->resetErrorBag();
         $this->item = $task;
         $this->confirmingItemEdit = true;
@@ -121,6 +126,7 @@ class TasksChild extends Component
 
     public function editItem(): void
     {
+        $this->authorize('update', $this->item);
         $this->validate();
         $this->item->save();
         $this->confirmingItemEdit = false;

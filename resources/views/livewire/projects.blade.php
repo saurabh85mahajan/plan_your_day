@@ -1,11 +1,4 @@
 <div class="mt-8">
-    <div class="flex justify-between">
-        <div class="text-2xl">Projects</div>
-        <button type="submit" wire:click="$emitTo('projects-child', 'showCreateForm');" class="text-blue-500">
-            <x:tall-crud-generator::icon-add />
-        </button> 
-    </div>
-
     <div class="mt-6">
         <div class="flex justify-between">
             <div class="flex">
@@ -21,6 +14,9 @@
                     <option value="20">20</option>
                     <option value="50">50</option>
                 </x:tall-crud-generator::select>
+                <button type="submit" wire:click="$emitTo('projects-child', 'showCreateForm');" class="ml-2 text-blue-500">
+                    <x:tall-crud-generator::icon-add />
+                </button> 
             </div>
         </div>
         <x-table>

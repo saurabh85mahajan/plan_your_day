@@ -1,8 +1,4 @@
 <div class="mt-8">
-    <div class="flex justify-between">
-        <div class="text-2xl">Tasks</div> 
-    </div>
-
     <div class="mt-6 min-h-screen">
         <div class="flex justify-between">
             <div class="flex">
