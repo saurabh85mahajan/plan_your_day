@@ -17,7 +17,6 @@ class ScheduleTaskTest extends TestCase
         Task::factory()->count(3)->create(['created_at' => Carbon::yesterday()]);
 
         $this->artisan('schedule:tasks')
-            ->expectsOutput('3 Pending Tasks were Scheduled for Today')
             ->assertExitCode(0);
     }
 }
