@@ -55,4 +55,12 @@ class Task extends Model
         $this->save();
     }
 
+    public function duplicate()
+    {
+        $newTask = $this->replicate();
+        $newTask->created_at = Carbon::now();
+        $newTask->is_completed = null;
+        $newTask->save();
+    }
+
 }

@@ -27,7 +27,7 @@ class OldTasks extends Component
     /**
      * @var bool
      */
-    public $sortAsc = true;
+    public $sortAsc = false;
 
     /**
      * @var int
@@ -136,9 +136,7 @@ class OldTasks extends Component
 
     public function duplicate(Task $task)
     {
-        $newTask = $task->replicate();
-        $newTask->created_at = Carbon::now();
-        $newTask->save();
+        $task->duplicate();
         $this->emitTo('livewire-toast', 'show', 'New Task Added Successfully');
     }
 }
