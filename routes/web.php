@@ -26,6 +26,7 @@ Route::middleware(['auth'])->group(function() {
     Route::view('/tall-crud-generator', 'tall-crud-generator')->name('tall-crud-generator');
     Route::view('/projects', 'projects')->name('projects');
     Route::view('/tasks', 'tasks')->name('tasks');
+    Route::view('/old-tasks', 'old-tasks')->name('old-tasks');
 });
 
 require __DIR__.'/auth.php';

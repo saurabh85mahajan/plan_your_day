@@ -25,6 +25,11 @@ class Task extends Model
         return $query->whereDate('tasks.created_at', Carbon::today());
     }
 
+    public function scopeOlder($query)
+    {
+        return $query->whereDate('tasks.created_at', '<', Carbon::today());
+    }
+
     public function scopePending($query)
     {
         return $query->whereNull('is_completed');
