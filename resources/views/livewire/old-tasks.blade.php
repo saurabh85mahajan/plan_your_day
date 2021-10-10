@@ -17,38 +17,31 @@
                 </x:tall-crud-generator::select>
             </div>
         </div>
-        <table class="w-full whitespace-no-wrap mt-4 shadow-2xl" wire:loading.class.delay="opacity-50">
-            <thead>
-                <tr class="text-left font-bold bg-blue-400">
-                    <x-td>
-                        <div class="flex items-center">
-                            <button wire:click="sortBy('title')">Title</button>
-                            <x:tall-crud-generator::sort-icon sortField="title" :sort-by="$sortBy" :sort-asc="$sortAsc" />
-                        </div>
-                    </x-td>
-                    <x-td>Project</x-td>
-                    <x-td>
-                        <div class="flex items-center">
-                            <button wire:click="sortBy('complexity')">Complexity</button>
-                            <x:tall-crud-generator::sort-icon sortField="complexity" :sort-by="$sortBy" :sort-asc="$sortAsc" />
-                        </div>
-                    </x-td>
-                    <x-td>
-                        <div class="flex items-center">
-                            <button wire:click="sortBy('priority')">Priority</button>
-                            <x:tall-crud-generator::sort-icon sortField="priority" :sort-by="$sortBy" :sort-asc="$sortAsc" />
-                        </div>
-                    </x-td>
-                    <x-td>
-                        <div class="flex items-center">
-                            <button wire:click="sortBy('created_at')">Created At</button>
-                            <x:tall-crud-generator::sort-icon sortField="created_at" :sort-by="$sortBy" :sort-asc="$sortAsc" />
-                        </div>
-                    </x-td>
-                    <x-td>Actions</x-td>
-                </tr>
-            </thead>
-            <tbody class="divide-y divide-blue-400">
+        <x-table>
+            <x-slot name="header">
+                <x-td>
+                    <x-sortable-header label="Title" column="title">
+                        <x:tall-crud-generator::sort-icon sortField="title" :sort-by="$sortBy" :sort-asc="$sortAsc" />
+                    </x-sortable-header>
+                </x-td>
+                <x-td>Project</x-td>
+                <x-td>
+                    <x-sortable-header label="Complexity" column="complexity">
+                        <x:tall-crud-generator::sort-icon sortField="complexity" :sort-by="$sortBy" :sort-asc="$sortAsc" />
+                    </x-sortable-header>
+                </x-td>
+                <x-td>
+                    <x-sortable-header label="Priority" column="priority">
+                        <x:tall-crud-generator::sort-icon sortField="priority" :sort-by="$sortBy" :sort-asc="$sortAsc" />
+                    </x-sortable-header>
+                </x-td>
+                <x-td>
+                    <x-sortable-header label="Created At" column="created_at">
+                        <x:tall-crud-generator::sort-icon sortField="created_at" :sort-by="$sortBy" :sort-asc="$sortAsc" />
+                    </x-sortable-header>
+                </x-td>
+                <x-td>Actions</x-td>
+            </x-slot>
             @foreach($results as $result)
                 <tr class="hover:bg-blue-300 {{ ($loop->even ) ? "bg-blue-100" : ""}}">
                     <x-td>{{ $result->title}}</x-td>
@@ -63,8 +56,7 @@
                     </x-td>
                </tr>
             @endforeach
-            </tbody>
-        </table>
+        </x-table>
     </div>
 
     <div class="mt-4">

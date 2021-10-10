@@ -23,25 +23,20 @@
                 </x:tall-crud-generator::select>
             </div>
         </div>
-        <table class="w-full whitespace-no-wrap mt-4 shadow-2xl" wire:loading.class.delay="opacity-50">
-            <thead>
-                <tr class="text-left font-bold bg-blue-400">
-                    <x-td>
-                        <div class="flex items-center">
-                            <button wire:click="sortBy('id')">Id</button>
-                            <x:tall-crud-generator::sort-icon sortField="id" :sort-by="$sortBy" :sort-asc="$sortAsc" />
-                        </div>
-                    </x-td>
-                    <x-td>
-                        <div class="flex items-center">
-                            <button wire:click="sortBy('name')">Name</button>
-                            <x:tall-crud-generator::sort-icon sortField="name" :sort-by="$sortBy" :sort-asc="$sortAsc" />
-                        </div>
-                    </x-td>
-                    <x-td>Actions</x-td>
-                </tr>
-            </thead>
-            <tbody class="divide-y divide-blue-400">
+        <x-table>
+            <x-slot name="header">
+                <x-td>
+                    <x-sortable-header label="Id" column="id">
+                        <x:tall-crud-generator::sort-icon sortField="id" :sort-by="$sortBy" :sort-asc="$sortAsc" />
+                    </x-sortable-header>
+                </x-td>
+                <x-td>
+                    <x-sortable-header label="Name" column="name">
+                        <x:tall-crud-generator::sort-icon sortField="name" :sort-by="$sortBy" :sort-asc="$sortAsc" />
+                    </x-sortable-header>
+                </x-td>
+                <x-td>Actions</x-td>
+            </x-slot>
             @foreach($results as $result)
                 <tr class="hover:bg-blue-300 {{ ($loop->even ) ? "bg-blue-100" : ""}}">
                     <x-td>{{ $result->id}}</x-td>
@@ -54,10 +49,9 @@
                             <x:tall-crud-generator::icon-delete />
                         </button>
                     </x-td>
-               </tr>
+                </tr>
             @endforeach
-            </tbody>
-        </table>
+        </x-table>
     </div>
 
     <div class="mt-4">

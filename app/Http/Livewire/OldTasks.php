@@ -121,6 +121,7 @@ class OldTasks extends Component
 
     public function query(): Builder
     {
+        sleep(2);
         return Task::query()
             ->older()
             ->when($this->isFilterSet('priority'), function($query) {
