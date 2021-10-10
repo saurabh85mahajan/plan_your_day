@@ -6,7 +6,7 @@ $priorityClass = [
 ][$task->priority ?? '1'];
 @endphp
 
-<div class="lg:flex items-center justify-center mb-2 text-white">
+<div class="lg:flex items-center justify-center mb-2 text-white bg-gray-100 rounded border px-3 py-2">
     <div class="flex lg:w-4/6 bg-gradient-to-r {{$priorityClass}} rounded-lg border px-3 py-2 ">
         <div @class(['flex-initial', 'w-2/3', 'line-through' => $task->is_completed])>{{ $task->title}}</div>
         <div class="flex flex-initial w-1/6">
@@ -20,7 +20,7 @@ $priorityClass = [
         </div>
     </div>
 
-    <div class="flex-grow bg-white mb-6 mt-2 lg:mb-0 lg:mt-0 lg:ml-2 lg:w-1/6">
+    <div class="flex-grow mb-6 mt-2 lg:mb-0 lg:mt-0 lg:ml-2 lg:flex lg:justify-around">
         <x:tall-crud-generator::button mode="add" wire:loading.attr="disabled" wire:click="toggleComplete({{ $task->id}})">
             Mark {{$task->isCompleted() ? 'Pending' : 'Complete'}}
         </x:tall-crud-generator::button>

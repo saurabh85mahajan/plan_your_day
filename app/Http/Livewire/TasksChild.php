@@ -31,6 +31,9 @@ class TasksChild extends Component
      */
     protected $rules = [
         'item.title' => 'required',
+        'item.priority' => 'required',
+        'item.complexity' => 'required',
+        'item.project_id' => 'required',
     ];
 
     /**
@@ -86,19 +89,22 @@ class TasksChild extends Component
         $this->confirmingItemCreation = true;
         $this->resetErrorBag();
         $this->reset(['item']);
+        $this->item['complexity'] = $this->item['priority'] = 1;
 
-        $this->projects = auth()->user()->projects()->orderBy('name')->get();
+        $this->projects = auth()->user()->projects()->orderBy('is_default', 'DESC')->orderBy('name')->get();
     }
 
     public function createItem(): void
     {
         $this->validate();
-        $item = Task::create([
-            'title' => $this->item['title'] ?? '', 
-            'complexity' => $this->item['complexity'] ?? '1', 
-            'priority' => $this->item['priority'] ?? '1', 
-            'project_id' => $this->item['project_id'] ?? null, 
-        ]);
+        auth()->user()->projects()
+            ->firstWhere('id', $this->item['project_id'])
+            ->tasks()
+            ->create([
+                'title' => $this->item['title'] ?? '',
+                'complexity' => $this->item['complexity'] ?? '1',
+                'priority' => $this->item['priority'] ?? '1',
+            ]);
         $this->confirmingItemCreation = false;
         $this->emitTo('tasks', 'refresh');
         $this->emitTo('livewire-toast', 'show', 'Task Added Successfully');
@@ -110,7 +116,7 @@ class TasksChild extends Component
         $this->item = $task;
         $this->confirmingItemEdit = true;
 
-        $this->projects = auth()->user()->projects()->orderBy('name')->get();
+        $this->projects = auth()->user()->projects()->orderBy('is_default', 'DESC')->orderBy('name')->get();
     }
 
     public function editItem(): void

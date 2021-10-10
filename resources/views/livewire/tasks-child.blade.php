@@ -2,11 +2,11 @@
 
     <x:tall-crud-generator::confirmation-dialog wire:model="confirmingItemDeletion">
         <x-slot name="title">
-            Delete Record
+            Delete Task
         </x-slot>
 
         <x-slot name="content">
-            Are you sure you want to Delete Record?
+            Are you sure you want to Delete Task?
         </x-slot>
 
         <x-slot name="footer">
@@ -17,7 +17,7 @@
 
     <x:tall-crud-generator::dialog-modal wire:model="confirmingItemCreation">
         <x-slot name="title">
-            Add Record
+            Add Task
         </x-slot>
 
         <x-slot name="content">
@@ -31,11 +31,11 @@
                 <div class="mt-4">
                     <x:tall-crud-generator::label>Project</x:tall-crud-generator::label>
                     <x:tall-crud-generator::select class="block mt-1 w-full" wire:model.defer="item.project_id">
-                        <option value="">No Project</option>
                         @foreach($projects as $c)
                         <option value="{{$c->id}}">{{$c->name}}</option>
                         @endforeach
                     </x:tall-crud-generator::select>
+                    @error('item.project_id') <x:tall-crud-generator::error-message>{{$message}}</x:tall-crud-generator::error-message> @enderror
                 </div>
             </div>
             <div class="mt-4">
@@ -45,6 +45,7 @@
                     <option value="{{$i}}">{{$i}}</option>
                     @endfor
                 </x:tall-crud-generator::select>
+                @error('item.complexity') <x:tall-crud-generator::error-message>{{$message}}</x:tall-crud-generator::error-message> @enderror
             </div>
             <div class="mt-4">
                 <x:tall-crud-generator::label>Priority</x:tall-crud-generator::label>
@@ -53,6 +54,7 @@
                     <option value="{{$i}}">{{$i}}</option>
                     @endfor
                 </x:tall-crud-generator::select>
+                @error('item.priority') <x:tall-crud-generator::error-message>{{$message}}</x:tall-crud-generator::error-message> @enderror
             </div>
         </x-slot>
 
@@ -64,7 +66,7 @@
 
     <x:tall-crud-generator::dialog-modal wire:model="confirmingItemEdit">
         <x-slot name="title">
-            Edit Record
+            Edit Task
         </x-slot>
 
         <x-slot name="content">
@@ -78,7 +80,6 @@
                 <div class="mt-4">
                     <x:tall-crud-generator::label>Project</x:tall-crud-generator::label>
                     <x:tall-crud-generator::select class="block mt-1 w-full" wire:model.defer="item.project_id">
-                        <option value="">No Project</option>
                         @foreach($projects as $c)
                         <option value="{{$c->id}}">{{$c->name}}</option>
                         @endforeach
@@ -101,7 +102,6 @@
                     @endfor
                 </x:tall-crud-generator::select>
             </div>
-
         </x-slot>
 
         <x-slot name="footer">

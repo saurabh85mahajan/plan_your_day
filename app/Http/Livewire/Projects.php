@@ -80,6 +80,7 @@ class Projects extends Component
     public function query()
     {
         // return Project::query();
-        return auth()->user()->projects();
+        return auth()->user()->projects()
+            ->nonDefault();
     }
 }

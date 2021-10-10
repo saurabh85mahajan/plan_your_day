@@ -49,7 +49,7 @@
         </button> 
     </div>
 
-    <div class="mt-6" wire:loading.class="opacity-50">
+    <div class="mt-6 min-h-screen" wire:loading.class="opacity-50">
         @foreach($results as $task)
             <x-task-card :task=$task />
         @endforeach

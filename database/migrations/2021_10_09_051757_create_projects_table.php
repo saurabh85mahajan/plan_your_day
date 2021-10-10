@@ -18,6 +18,7 @@ class CreateProjectsTable extends Migration
             $table->integer('user_id')->index();
             $table->string('name');
             $table->text('notes')->nullable();
+            $table->integer('is_default')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

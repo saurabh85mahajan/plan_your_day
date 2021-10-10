@@ -51,4 +51,16 @@ class User extends Authenticatable
     {
         return $this->hasManyThrough(Task::class, Project::class);
     }
+
+    protected static function booted()
+    {
+        static::created(function ($user) {
+             $project = $user->projects()->create([
+                'name' => 'No Project',
+                'notes' => 'Default Project.'
+            ]);
+            $project->is_default = 1;
+            $project->save();
+        });
+    }
 }

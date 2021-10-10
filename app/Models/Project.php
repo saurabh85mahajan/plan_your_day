@@ -21,4 +21,9 @@ class Project extends Model
     {
         return $this->hasMany(\App\Models\Task::class);
     }
+
+    public function scopeNonDefault($query)
+    {
+        return $query->whereNull('is_default');
+    }
 }
