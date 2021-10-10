@@ -26,34 +26,34 @@
         <table class="w-full whitespace-no-wrap mt-4 shadow-2xl" wire:loading.class.delay="opacity-50">
             <thead>
                 <tr class="text-left font-bold bg-blue-400">
-                    <td class="px-3 py-2" >
+                    <x-td>
                         <div class="flex items-center">
                             <button wire:click="sortBy('id')">Id</button>
                             <x:tall-crud-generator::sort-icon sortField="id" :sort-by="$sortBy" :sort-asc="$sortAsc" />
                         </div>
-                    </td>
-                    <td class="px-3 py-2" >
+                    </x-td>
+                    <x-td>
                         <div class="flex items-center">
                             <button wire:click="sortBy('name')">Name</button>
                             <x:tall-crud-generator::sort-icon sortField="name" :sort-by="$sortBy" :sort-asc="$sortAsc" />
                         </div>
-                    </td>
-                    <td class="px-3 py-2" >Actions</td>
+                    </x-td>
+                    <x-td>Actions</x-td>
                 </tr>
             </thead>
             <tbody class="divide-y divide-blue-400">
             @foreach($results as $result)
                 <tr class="hover:bg-blue-300 {{ ($loop->even ) ? "bg-blue-100" : ""}}">
-                    <td class="px-3 py-2" >{{ $result->id}}</td>
-                    <td class="px-3 py-2" >{{ $result->name}}</td>
-                    <td class="px-3 py-2" >
+                    <x-td>{{ $result->id}}</x-td>
+                    <x-td>{{ $result->name}}</x-td>
+                    <x-td>
                         <button type="submit" wire:click="$emitTo('projects-child', 'showEditForm', {{ $result->id}});" class="text-green-500">
                             <x:tall-crud-generator::icon-edit />
                         </button>
                         <button type="submit" wire:click="$emitTo('projects-child', 'showDeleteForm', {{ $result->id}});" class="text-red-500">
                             <x:tall-crud-generator::icon-delete />
                         </button>
-                    </td>
+                    </x-td>
                </tr>
             @endforeach
             </tbody>
