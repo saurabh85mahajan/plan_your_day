@@ -2,11 +2,11 @@
 
     <x:tall-crud-generator::confirmation-dialog wire:model="confirmingItemDeletion">
         <x-slot name="title">
-            Delete Record
+            Delete Project
         </x-slot>
 
         <x-slot name="content">
-            Are you sure you want to Delete Record?
+            Are you sure you want to Delete Project?
         </x-slot>
 
         <x-slot name="footer">
@@ -17,7 +17,7 @@
 
     <x:tall-crud-generator::dialog-modal wire:model="confirmingItemCreation">
         <x-slot name="title">
-            Add Record
+            Add Project
         </x-slot>
 
         <x-slot name="content">
@@ -41,7 +41,7 @@
 
     <x:tall-crud-generator::dialog-modal wire:model="confirmingItemEdit">
         <x-slot name="title">
-            Edit Record
+            Edit Project
         </x-slot>
 
         <x-slot name="content">
